@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Basketball AI Chat</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        input { padding: 8px; width: 300px; }
+        button { padding: 8px 12px; }
+        .response { margin-top: 20px; border-left: 3px solid #444; padding-left: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>🏀 Basketball AI Chat</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="message" placeholder="Напиши свой вопрос..." required>
+    <button type="submit">Отправить</button>
+</form>
+
+{% if reply %}
+    <div class="response">
+        <h3>Ответ:</h3>
+        <p>{{ reply }}</p>
+    </div>
+{% endif %}
+
+</body>
+</html>
