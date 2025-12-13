@@ -9,9 +9,10 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
+OPENAI_API_KEY = os.getenv("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")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 

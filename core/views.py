@@ -1,33 +1,41 @@
-import requests
+import os
 from django.shortcuts import render
+from dotenv import load_dotenv
+from openai import OpenAI
 
-def home(request):
-    return render(request, "core/home.html")
+load_dotenv()
 
-
-
-
-import requests
-from django.shortcuts import render
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def chat_view(request):
     reply = None
-    debug = None
+    error = None
 
     if request.method == "POST":
         user_message = request.POST.get("message")
 
-        response = requests.post(
-            "https://zabiyachka.app.n8n.cloud/webhook/chatbot",
-            json={"message": user_message},
-            timeout=30
-        )
+        try:
+            response = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "Ти баскетбольний AI тренер. Даєш програми тренувань і факти про гравців."
+                    },
+                    {
+                        "role": "user",
+                        "content": user_message
+                    }
+                ],
+                timeout=20
+            )
 
-        debug = response.text  # 👈 ВАЖЛИВО
-        data = response.json()
-        reply = data.get("answer")
+            reply = response.choices[0].message.content
+
+        except Exception as e:
+            error = str(e)
 
     return render(request, "core/chat.html", {
         "reply": reply,
-        "debug": debug
+        "error": error
     })
