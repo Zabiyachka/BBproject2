@@ -99,3 +99,50 @@ body {
     background: #ffe5e5;
     color: #900;
 }
+
+/* ===== CALORIES ===== */
+
+.calories-form {
+    background: #fff;
+    padding: 24px;
+    max-width: 420px;
+    margin: 40px auto;
+    border-radius: 16px;
+}
+
+.calories-form input,
+.calories-form select,
+.calories-form button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.calories-result {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 20px;
+    color: #ff7a00;
+}
+
+.navbar {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #111;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #ff7a00;
+}
+
+.content {
+    padding: 40px;
+}

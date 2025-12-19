@@ -1,37 +1,19 @@
 {% extends "core/base.html" %}
 
 {% block content %}
+<h1>🏀 Basketball AI Chat</h1>
 
-<div class="chat-box">
+<form method="post" class="chat-form">
+    {% csrf_token %}
+    <input type="text" name="message" placeholder="Напиши питання..." required>
+    <button type="submit">Send</button>
+</form>
 
-    <h1>Welcome to Basketball AI</h1>
-    <p class="subtitle">
-        Твій персональний AI-тренер з баскетболу
-    </p>
+{% if reply %}
+<div class="message ai">{{ reply }}</div>
+{% endif %}
 
-    <form method="post" class="chat-form">
-        {% csrf_token %}
-        <input
-            type="text"
-            name="message"
-            placeholder="Запитай про тренування, кидок, відновлення..."
-            required
-        >
-        <button type="submit">➤</button>
-    </form>
-
-    {% if reply %}
-        <div class="message ai">
-            {{ reply }}
-        </div>
-    {% endif %}
-
-    {% if error %}
-        <div class="message error">
-            {{ error }}
-        </div>
-    {% endif %}
-
-</div>
-
+{% if error %}
+<div class="message error">{{ error }}</div>
+{% endif %}
 {% endblock %}

@@ -44,3 +44,26 @@ def chat_view(request):
             "error": error
         }
     )
+def calories_view(request):
+    calories = None
+
+    if request.method == "POST":
+        gender = request.POST.get("gender")
+        age = int(request.POST.get("age"))
+        height = int(request.POST.get("height"))
+        weight = int(request.POST.get("weight"))
+        activity = float(request.POST.get("activity"))
+
+        if gender == "male":
+            bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)
+        else:
+            bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)
+
+        calories = round(bmr * activity)
+
+    return render(request, "core/calories.html", {
+        "calories": calories
+    })
+
+def home(request):
+    return render(request, "core/home.html")
