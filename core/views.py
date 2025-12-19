@@ -1,11 +1,12 @@
 import os
-from django.shortcuts import render
 from dotenv import load_dotenv
+from django.shortcuts import render
 from openai import OpenAI
 
 load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 
 def chat_view(request):
     reply = None
@@ -20,14 +21,14 @@ def chat_view(request):
                 messages=[
                     {
                         "role": "system",
-                        "content": "Ти баскетбольний AI тренер. Даєш програми тренувань і факти про гравців."
+                        "content": "You are a basketball AI coach."
                     },
                     {
                         "role": "user",
                         "content": user_message
                     }
                 ],
-                timeout=20
+                timeout=30
             )
 
             reply = response.choices[0].message.content
@@ -35,7 +36,11 @@ def chat_view(request):
         except Exception as e:
             error = str(e)
 
-    return render(request, "core/chat.html", {
-        "reply": reply,
-        "error": error
-    })
+    return render(
+        request,
+        "core/chat.html",
+        {
+            "reply": reply,
+            "error": error
+        }
+    )
