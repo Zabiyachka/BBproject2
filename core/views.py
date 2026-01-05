@@ -3,9 +3,11 @@ from dotenv import load_dotenv
 from django.shortcuts import render
 from openai import OpenAI
 
-load_dotenv()
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY")
+)
 
 
 def chat_view(request):
