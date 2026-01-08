@@ -1,7 +1,9 @@
 import os
 from dotenv import load_dotenv
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from openai import OpenAI
+from .models import Todo
+from datetime import date
 
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 
@@ -69,3 +71,24 @@ def calories_view(request):
 
 def home(request):
     return render(request, "core/home.html")
+
+def todo_view(request):
+    selected_date = request.GET.get("date") or date.today().isoformat()
+
+    if request.method == "POST":
+        title = request.POST.get("title")
+        todo_date = request.POST.get("date")
+
+        if title and todo_date:
+            Todo.objects.create(title=title, date=todo_date)
+
+        return redirect(f"/todo/?date={todo_date}")
+
+    todos = Todo.objects.filter(date=selected_date).order_by("-created_at")
+
+    return render(request, "core/todo.html", {
+        "todos": todos,
+        "selected_date": selected_date
+    })
+def calendar_view(request):
+    return render(request, "core/calendar.html")

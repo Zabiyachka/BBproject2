@@ -1,4 +1,5 @@
 {% extends "core/base.html" %}
+{% load static %}
 
 {% block content %}
 <h1>🏀 Basketball AI Chat</h1>
@@ -10,10 +11,14 @@
 </form>
 
 {% if reply %}
-<div class="message ai">{{ reply }}</div>
+<div class="message ai">
+    <span id="ai-text" data-text="{{ reply|escapejs }}"></span>
+</div>
 {% endif %}
+
 
 {% if error %}
 <div class="message error">{{ error }}</div>
 {% endif %}
+<script src="{% static 'core/js/chat.js' %}"></script>
 {% endblock %}

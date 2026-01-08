@@ -1,0 +1,38 @@
+{% extends "core/base.html" %}
+{% block content %}
+
+<h1>📅 To-Do by Day</h1>
+
+<!-- DATE SELECT -->
+<form method="get">
+    <input type="date" name="date" value="{{ selected_date }}">
+    <button type="submit">Show</button>
+</form>
+
+<hr>
+
+<!-- ADD TASK -->
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="date" value="{{ selected_date }}">
+    <input type="text" name="title" placeholder="New task..." required>
+    <button type="submit">Add</button>
+</form>
+
+<hr>
+
+<ul>
+{% for todo in todos %}
+    <li>
+        {% if todo.completed %}
+            ✅ <s>{{ todo.title }}</s>
+        {% else %}
+            ⏳ {{ todo.title }}
+        {% endif %}
+    </li>
+{% empty %}
+    <li>No tasks for this day</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
