@@ -146,3 +146,30 @@ body {
 .content {
     padding: 40px;
 }
+/* style.css */
+
+.message.system {
+    background-color: #fff3cd;
+    color: #856404;
+    border-left: 3px solid #ffc107;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.message.user {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    text-align: right;
+}
+
+.message.assistant {
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
