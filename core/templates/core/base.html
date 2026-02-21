@@ -3,33 +3,44 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basketball AI</title>
     <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <style>
+        * { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif; }
+        body { background: #f8f9fa; margin: 0; }
+        nav { background: white !important; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-bottom: 1px solid #e5e7eb; }
+        .navbar-brand { color: #1f2937 !important; font-weight: 600; font-size: 20px; letter-spacing: -0.5px; }
+        .nav-link { color: #6b7280 !important; font-weight: 500; font-size: 15px; margin-left: 24px; transition: color 0.2s; }
+        .nav-link:hover { color: #3b82f6 !important; }
+    </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="/">🏀 BB Project</a>
-
-    <div>
-      <a class="nav-link d-inline text-white" href="/chat/">Chat</a>
-      <a class="nav-link d-inline text-white" href="/todo/">To-Do</a>
-      <a class="nav-link d-inline text-white" href="/calories/">Calories</a>
+<nav class="navbar navbar-expand-lg">
+  <div style="max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center;">
+    <a class="navbar-brand" href="/">🏀 Basketball AI</a>
+    <div style="display: flex; gap: 0; align-items: center;">
+      {% if user.is_authenticated %}
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/chat/">Chat</a>
+        <a class="nav-link" href="/todo/">To-Do</a>
+        <a class="nav-link" href="/calories/">Calories</a>
+        <span class="nav-link" style="margin-left: 32px; color: #3b82f6 !important;">👤 {{ user.username }}</span>
+        <a class="nav-link" href="/logout/" style="color: #ef4444 !important; margin-left: 12px;">Logout</a>
+      {% else %}
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/login/" style="margin-left: 32px; padding: 8px 16px; background: #3b82f6; color: white !important; border-radius: 6px; margin-left: 16px;">Login</a>
+        <a class="nav-link" href="/register/" style="padding: 8px 16px; background: #10b981; color: white !important; border-radius: 6px; margin-left: 8px;">Sign Up</a>
+      {% endif %}
     </div>
   </div>
 </nav>
 
-<div class="container mt-4">
+<div style="background: #f8f9fa; min-height: calc(100vh - 70px); padding-top: 24px;">
     {% block content %}
     {% endblock %}
 </div>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

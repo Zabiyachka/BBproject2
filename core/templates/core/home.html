@@ -1,0 +1,185 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    
+    <!-- Hero Section -->
+    <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); border-radius: 16px; padding: 60px 40px; margin-bottom: 40px; color: white; text-align: center; box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);">
+        <div style="font-size: 64px; margin-bottom: 16px;">🏀</div>
+        <h1 style="margin: 0 0 12px 0; font-size: 42px; font-weight: 700; letter-spacing: -1px;">Basketball AI Coach</h1>
+        <p style="margin: 0; font-size: 18px; opacity: 0.95; font-weight: 300;">Your personal AI coach for basketball training, wellness, and performance</p>
+    </div>
+    
+    <!-- Quick Access Cards -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px;">
+        <!-- Chat Card -->
+        <a href="/chat/" style="text-decoration: none; cursor: pointer;">
+            <div style="background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: all 0.3s; border: 1px solid #e5e7eb; height: 100%;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(59, 130, 246, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.08)';">
+                <div style="font-size: 40px; margin-bottom: 12px;">🤖</div>
+                <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 20px; font-weight: 600;\">AI Basketball Coach</h3>
+                <p style="margin: 0; color: #6b7280; font-size: 14px; line-height: 1.6;\">Get expert advice on basketball, NBA stats, player analysis, and training strategies</p>
+            </div>
+        </a>
+        
+        <!-- Tasks Card -->
+        <a href="/todo/" style="text-decoration: none; cursor: pointer;">
+            <div style="background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: all 0.3s; border: 1px solid #e5e7eb; height: 100%;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(16, 185, 129, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.08)';">
+                <div style="font-size: 40px; margin-bottom: 12px;\">✅</div>
+                <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 20px; font-weight: 600;\">Task Manager</h3>
+                <p style="margin: 0; color: #6b7280; font-size: 14px; line-height: 1.6;\">Organize your daily to-do list and track your training schedule</p>
+            </div>
+        </a>
+        
+        <!-- Calories Card -->
+        <a href="/calories/" style="text-decoration: none; cursor: pointer;">
+            <div style="background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: all 0.3s; border: 1px solid #e5e7eb; height: 100%;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(245, 158, 11, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.08)';">
+                <div style="font-size: 40px; margin-bottom: 12px;\">🔥</div>
+                <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 20px; font-weight: 600;\">Calorie Calculator</h3>
+                <p style="margin: 0; color: #6b7280; font-size: 14px; line-height: 1.6;\">Calculate your daily calorie needs based on your profile</p>
+            </div>
+        </a>
+    </div>
+    
+    <!-- Features Section -->
+    <div style="background: white; border-radius: 16px; padding: 40px; margin-bottom: 40px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+        <h2 style="margin: 0 0 32px 0; color: #1f2937; font-size: 28px; font-weight: 600; text-align: center;\">✨ Key Features</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;">
+            <!-- Feature 1 -->
+            <div>
+                <div style="display: flex; align-items: start; gap: 16px;">
+                    <div style="font-size: 32px; flex-shrink: 0;">🧠</div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 18px; font-weight: 600;\">AI-Powered Coaching</h3>
+                        <p style="margin: 0; color: #6b7280; line-height: 1.6; font-size: 14px;\">Leverage GPT-4o-mini to get instant basketball coaching, NBA player comparisons, and training advice</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div>
+                <div style="display: flex; align-items: start; gap: 16px;">
+                    <div style="font-size: 32px; flex-shrink: 0;\">💾</div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 18px; font-weight: 600;\">Chat History</h3>
+                        <p style="margin: 0; color: #6b7280; line-height: 1.6; font-size: 14px;\">All conversations are saved automatically. Access your full chat history anytime</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div>
+                <div style="display: flex; align-items: start; gap: 16px;">
+                    <div style="font-size: 32px; flex-shrink: 0;\">📋</div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 18px; font-weight: 600;\">Task Organization</h3>
+                        <p style="margin: 0; color: #6b7280; line-height: 1.6; font-size: 14px;\">Create, manage, and filter tasks by date to stay organized</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div>
+                <div style="display: flex; align-items: start; gap: 16px;">
+                    <div style="font-size: 32px; flex-shrink: 0;\">🎯</div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 18px; font-weight: 600;\">Smart Calculations</h3>
+                        <p style="margin: 0; color: #6b7280; line-height: 1.6; font-size: 14px;\">Use Harris-Benedict formula to calculate personalized calorie recommendations</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 5 -->
+            <div>
+                <div style="display: flex; align-items: start; gap: 16px;">
+                    <div style="font-size: 32px; flex-shrink: 0;\">⚡</div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 18px; font-weight: 600;\">Fast & Responsive</h3>
+                        <p style="margin: 0; color: #6b7280; line-height: 1.6; font-size: 14px;\">Modern interface designed for speed and ease of use</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 6 -->
+            <div>
+                <div style="display: flex; align-items: start; gap: 16px;">
+                    <div style="font-size: 32px; flex-shrink: 0;\">🔒</div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 18px; font-weight: 600;\">Secure & Private</h3>
+                        <p style="margin: 0; color: #6b7280; line-height: 1.6; font-size: 14px;\">Your data is kept private and secure with session-based storage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tech Stack Section -->
+    <div style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); border-radius: 16px; padding: 40px; margin-bottom: 40px;">
+        <h2 style="margin: 0 0 24px 0; color: #1f2937; font-size: 28px; font-weight: 600; text-align: center;\">🚀 Built With Modern Technology</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; text-align: center;">
+            <div style="background: white; padding: 16px; border-radius: 12px; border: 1px solid #d1d5db;">
+                <div style="font-size: 28px; margin-bottom: 8px;\">🐍</div>
+                <p style="margin: 0; color: #374151; font-weight: 600; font-size: 14px;\">Python</p>
+                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 12px;\">Backend Logic</p>
+            </div>
+            
+            <div style="background: white; padding: 16px; border-radius: 12px; border: 1px solid #d1d5db;">
+                <div style="font-size: 28px; margin-bottom: 8px;\">🎵</div>
+                <p style="margin: 0; color: #374151; font-weight: 600; font-size: 14px;\">Django</p>
+                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 12px;\">Web Framework</p>
+            </div>
+            
+            <div style="background: white; padding: 16px; border-radius: 12px; border: 1px solid #d1d5db;">
+                <div style="font-size: 28px; margin-bottom: 8px;\">🤖</div>
+                <p style="margin: 0; color: #374151; font-weight: 600; font-size: 14px;\">OpenAI</p>
+                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 12px;\">GPT-4o-mini</p>
+            </div>
+            
+            <div style="background: white; padding: 16px; border-radius: 12px; border: 1px solid #d1d5db;">
+                <div style="font-size: 28px; margin-bottom: 8px;\">💾</div>
+                <p style="margin: 0; color: #374151; font-weight: 600; font-size: 14px;\">SQLite</p>
+                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 12px;\">Database</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Getting Started Section -->
+    <div style="background: white; border-radius: 16px; padding: 40px; margin-bottom: 40px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-left: 4px solid #3b82f6;">
+        <h2 style="margin: 0 0 24px 0; color: #1f2937; font-size: 28px; font-weight: 600;\">🎯 Getting Started</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+            <div style="display: flex; gap: 16px;">
+                <div style="background: #3b82f6; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;\">1</div>
+                <div>
+                    <h4 style="margin: 0 0 8px 0; color: #1f2937; font-weight: 600;\">Ask the Coach</h4>
+                    <p style="margin: 0; color: #6b7280; font-size: 14px;\">Visit the Chat page to ask basketball questions and get AI coaching instantly</p>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 16px;">
+                <div style="background: #10b981; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;\">2</div>
+                <div>
+                    <h4 style="margin: 0 0 8px 0; color: #1f2937; font-weight: 600;\">Manage Tasks</h4>
+                    <p style="margin: 0; color: #6b7280; font-size: 14px;\">Create and organize your daily tasks in the To-Do section</p>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 16px;">
+                <div style="background: #f59e0b; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;\">3</div>
+                <div>
+                    <h4 style="margin: 0 0 8px 0; color: #1f2937; font-weight: 600;\">Track Calories</h4>
+                    <p style="margin: 0; color: #6b7280; font-size: 14px;\">Calculate your daily calorie needs and track your nutrition</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div style="text-align: center; padding: 40px 0; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 14px;">
+        <p style="margin: 0;\">BB Project © 2026 | Built with ❤️ for Basketball Enthusiasts</p>
+        <p style="margin: 8px 0 0 0; font-size: 12px;\">Powered by Python, Django, OpenAI, and SQLite</p>
+    </div>
+</div>
+
+{% endblock %}
